@@ -78,16 +78,35 @@ const App = () => {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Text style={{fontWeight: '700'}}>Smart Transport System!</Text>
+          <Text
+            style={{
+              fontWeight: '700',
+              textAlign: 'center',
+              padding: 10,
+              margin: 20,
+            }}>
+            Smart Transport System!
+          </Text>
           <Text
             style={{
               fontWeight: '400',
               borderBottomWidth: 1,
               borderBottomColor: '#ddd',
+              textAlign: 'center',
+              padding: 10,
+              margin: 20,
             }}>
             Both android and IOS!
           </Text>
-          <Text style={{fontWeight: '700'}}>Test: {count}</Text>
+          <Text
+            style={{
+              fontWeight: '700',
+              textAlign: 'center',
+              padding: 10,
+              margin: 20,
+            }}>
+            Test: {count}
+          </Text>
           <Button onPress={onPressLearnMore} title="Counter" color="#841584" />
         </View>
       </ScrollView>
