@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -14,6 +14,7 @@ import {
   StyleSheet,
   Text,
   useColorScheme,
+  Button,
   View,
 } from 'react-native';
 
@@ -53,9 +54,18 @@ const Section = ({children, title}) => {
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
-
+  const [count, setCount] = useState(0);
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100%',
+  };
+
+  const onPressLearnMore = () => {
+    setCount(count + 5);
   };
 
   return (
@@ -63,13 +73,41 @@ const App = () => {
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
+        contentContainerStyle={backgroundStyle}>
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          
-          <Text style={{fontWeight:"700"}}>Hellooo!</Text>
+          <Text
+            style={{
+              fontWeight: '700',
+              textAlign: 'center',
+              padding: 10,
+              margin: 20,
+            }}>
+            Smart Transport System!
+          </Text>
+          <Text
+            style={{
+              fontWeight: '400',
+              borderBottomWidth: 1,
+              borderBottomColor: '#ddd',
+              textAlign: 'center',
+              padding: 10,
+              margin: 20,
+            }}>
+            Both android and IOS!
+          </Text>
+          <Text
+            style={{
+              fontWeight: '700',
+              textAlign: 'center',
+              padding: 10,
+              margin: 20,
+            }}>
+            Test: {count}
+          </Text>
+          <Button onPress={onPressLearnMore} title="Counter" color="#841584" />
         </View>
       </ScrollView>
     </SafeAreaView>
